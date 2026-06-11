@@ -1,0 +1,32 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.ruff_cache/
+
+# Virtual envs
+.venv/
+venv/
+
+# uv
+# (uv.lock IS committed on purpose)
+
+# Environment
+.env
+
+# Model / HF caches that may land locally
+.cache/
+
+# Recall artifacts (keep dirs via .gitkeep, ignore contents)
+data/raw/*
+!data/raw/.gitkeep
+data/chunks/*
+!data/chunks/.gitkeep
+data/traces/*
+!data/traces/.gitkeep
+data/eval/results/*
+!data/eval/results/.gitkeep
+
+# OS
+.DS_Store

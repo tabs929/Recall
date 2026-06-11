@@ -1,0 +1,50 @@
+[project]
+name = "recall"
+version = "0.1.0"
+description = "Recall — a production-grade retrieval-augmented generation system with a metric-driven eval harness."
+readme = "README.md"
+requires-python = ">=3.11"
+authors = [{ name = "Recall" }]
+
+dependencies = [
+    # Core data modelling + config
+    "pydantic>=2.7",
+    "python-dotenv>=1.0",
+    "rich>=13.7",
+    # Ingestion / loaders
+    "pypdf>=4.2",
+    "beautifulsoup4>=4.12",
+    "lxml>=5.2",
+    "langchain-text-splitters>=0.2",
+    "tiktoken>=0.7",
+    # Retrieval
+    "sentence-transformers>=3.0",
+    "qdrant-client>=1.9",
+    "rank-bm25>=0.2.2",
+    "numpy>=1.26",
+    # Generation + judge
+    "anthropic>=0.34",
+    # Eval
+    "ragas>=0.2",
+    "datasets>=2.19",
+    # Observability
+    "fastapi>=0.111",
+    "uvicorn[standard]>=0.30",
+    "streamlit>=1.36",
+    "pandas>=2.2",
+]
+
+[dependency-groups]
+dev = [
+    "deepeval>=1.0",
+    "pytest>=8.2",
+]
+
+[tool.uv]
+# Flat, multi-top-level-package layout — uv should manage the environment
+# without trying to build/install the project itself as a wheel.
+package = false
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
